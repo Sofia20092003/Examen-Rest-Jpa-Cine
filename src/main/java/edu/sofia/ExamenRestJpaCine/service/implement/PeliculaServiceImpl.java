@@ -19,7 +19,11 @@ public class PeliculaServiceImpl implements IPeliculaService{
     @Override
     @Transactional 
     public PeliculaDetalleDTO crear(PeliculaRequestDTO dto) {
-        
+
+        Pelicula r = new Pelicula(dto.titulo(), dto.director(), dto.anio(), dto.duracion());
+        peliculaRepo.save(r);
+
+        return PeliculaDetalleDTO(r.getPelicula_id(), r.getTitulo(), r.getDirector(), r.getAnio(), r.getDuracion(), r.getReparto());
     }
 
     @Override

@@ -40,12 +40,11 @@ public class Pelicula {
     public Pelicula() {
     }
 
-    public Pelicula(String titulo, String director, Integer anio, Integer duracion, List<Reparto> reparto) {
+    public Pelicula(String titulo, String director, Integer anio, Integer duracion) {
         this.titulo = titulo;
         this.director = director;
         this.anio = anio;
         this.duracion = duracion;
-        this.reparto = reparto;
     }
 
     public String getTitulo() {
