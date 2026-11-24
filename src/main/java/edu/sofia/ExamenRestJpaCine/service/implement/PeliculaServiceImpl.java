@@ -23,15 +23,24 @@ public class PeliculaServiceImpl implements IPeliculaService{
         Pelicula r = new Pelicula(dto.titulo(), dto.director(), dto.anio(), dto.duracion());
         peliculaRepo.save(r);
 
-        return PeliculaDetalleDTO(r.getPelicula_id(), r.getTitulo(), r.getDirector(), r.getAnio(), r.getDuracion(), r.getReparto());
+        PeliculaDetalleDTO rSaved = new PeliculaDetalleDTO(r.getPelicula_id(), r.getTitulo(), r.getDirector(), r.getAnio(), r.getDuracion(), null);
+
+        return rSaved;
     }
 
     @Override
-    public PeliculaDetalleDTO guardar(PeliculaRequestDTO dto) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'guardar'");
+    public boolean eliminar(Long id) {
+        peliculaRepo.deleteById(id);
+        return true;
     }
 
+    @Override
+    public PeliculaDetalleDTO actualizar(Long id) {
+        peliculaRepo.findById(id);
+        
+        
+    }
+    
     
 
 }
