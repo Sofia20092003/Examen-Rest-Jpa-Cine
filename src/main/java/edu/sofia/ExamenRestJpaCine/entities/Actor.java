@@ -5,11 +5,10 @@ import java.util.List;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
-import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 
 @Entity 
@@ -26,7 +25,7 @@ public class Actor {
     @Column(nullable = false, length = 60)
     private String nacionalidad;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "actor")
     private List<Reparto> reparto = new ArrayList<>();
 
     public Actor() {
